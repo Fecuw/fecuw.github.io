@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NITech Area Guide</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <style>
+      body {
+        background-color: #f4f7fb;
+        font-family: Arial, sans-serif;
+      }
+
+      .main-visual {
+        background:
+          linear-gradient(120deg, rgba(20,66,114,0.92), rgba(32,82,149,0.78)),
+          url("https://www.sssj.jimu.nagoya-u.ac.jp/kikanshoukai/assets_c/2018/02/10meiko-thumb-580xauto-33.jpg");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 54px 18px 42px 18px;
+      }
+
+      .main-visual h1 {
+        font-size: 2.4rem;
+        font-weight: 700;
+      }
+
+      .hero-small-text {
+        max-width: 680px;
+        font-size: 1rem;
+        line-height: 1.8;
+      }
+
+      .box {
+        padding: 12px;
+      }
+
+      .box2 {
+        padding: 6px;
+      }
+
+      .my-card {
+        border-radius: 6px;
+        box-shadow: 0 2px 7px rgba(0,0,0,0.10);
+      }
+
+      .map-wrap {
+        padding: 12px;
+        background-color: #ffffff;
+        border: 1px solid #d7dee8;
+        border-radius: 6px;
+      }
+
+      #mapid {
+        width: 100%;
+        height: 470px;
+        border-radius: 4px;
+      }
+
+      .badge-space {
+        margin-left: 8px;
+      }
+
+      .section-title {
+        border-left: 6px solid #2c74b3;
+        padding-left: 12px;
+      }
+
+      .footer-area {
+        background-color: #212529;
+        color: #eeeeee;
+        padding: 22px;
+        margin-top: 34px;
+      }
+
+      .little-padding {
+        padding: 8px;
+      }
+
+      .spot-img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">NITech Guide</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#map-section">Map</a></li>
+            <li class="nav-item"><a class="nav-link" href="#form-section">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="main-visual">
+      <div class="container">
+        <span class="badge text-bg-warning mb-3">Unofficial Page</span>
+        <h1>Nagoya Institute of Technology Area Guide</h1>
+        <p class="hero-small-text">
+          This page introduces Nagoya Institute of Technology and nearby places using Bootstrap components and Leaflet map.
+          It is a sample web page for practice.
+        </p>
+        <a href="#map-section" class="btn btn-light mt-2">Open Map</a>
+        <a href="#form-section" class="btn btn-outline-light mt-2 ms-2">Contact Form</a>
+      </div>
+    </header>
+
+    <main class="container mt-4">
+      <div class="alert alert-info" role="alert">
+        This is an unofficial web site of the Nagoya Institute of Technology.
+      </div>
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-white p-3 rounded">
+          <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Home</a></li>
+          <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Campus</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Nagoya</li>
+        </ol>
+      </nav>
+
+      <div class="box"></div>
+
+      <section>
+        <h2 class="section-title">Information</h2>
+        <div class="row g-4 mt-1">
+          <div class="col-md-4">
+            <div class="card my-card h-100">
+              <img src="https://www.sssj.jimu.nagoya-u.ac.jp/kikanshoukai/assets_c/2018/02/10meiko-thumb-580xauto-33.jpg" class="card-img-top spot-img" alt="Nagoya Institute of Technology campus">
+              <div class="card-body">
+                <h5 class="card-title">Campus</h5>
+                <p class="card-text">名古屋市昭和区にある工学系の大学です。周辺には駅や飲食店もあります。</p>
+                <span class="badge bg-primary">University</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card my-card h-100">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Jr_Gate_Tower_and_Jr_Central_Towers.jpg/330px-Jr_Gate_Tower_and_Jr_Central_Towers.jpg" class="card-img-top spot-img" alt="Nagoya Station area">
+              <div class="card-body">
+                <h5 class="card-title">Access</h5>
+                <p class="card-text">鶴舞駅から歩いて行ける場所にあります。名古屋駅からも移動しやすいです。</p>
+                <span class="badge bg-success">Station</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card my-card h-100">
+              <img src="https://cdn.jalan.jp/jalan/img/5/kuchikomi/1865/KXL/51cec_0001865692_1.JPG" class="card-img-top spot-img" alt="Nagoya Castle">
+              <div class="card-body">
+                <h5 class="card-title">Nearby Spot</h5>
+                <p class="card-text">名古屋城や名古屋駅など、地図上で確認できるスポットを追加しました。</p>
+                <span class="badge bg-danger">Map</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="box"></div>
+
+      <section>
+        <h2 class="section-title">Photo Gallery</h2>
+        <div class="row g-3 mt-1">
+          <div class="col-sm-6 col-lg-3">
+            <img src="https://katota1114.com/src/img/View_of_Nagoya_Institute_of_Technology_Entrance%2C_Tsurumai_Showa_Ward_Nagoya_2021.jpg" class="img-fluid rounded shadow-sm" alt="NITech entrance">
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <img src="https://stat.ameba.jp/user_images/20231118/18/mogmog813a/54/83/j/o1000066615365996151.jpg" class="img-fluid rounded shadow-sm" alt="NITech campus walkway">
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <img src="https://img.kojodan.com/photo/93028.jpg" class="img-fluid rounded shadow-sm" alt="Nagoya Castle keep">
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <img src="https://www.sssj.jimu.nagoya-u.ac.jp/kikanshoukai/assets_c/2018/02/10meiko-thumb-580xauto-33.jpg" class="img-fluid rounded shadow-sm" alt="NITech aerial view">
+          </div>
+        </div>
+      </section>
+
+      <div class="box"></div>
+
+      <section id="map-section">
+        <div class="d-flex align-items-center justify-content-between flex-wrap">
+          <h2 class="section-title">Leaflet Map</h2>
+          <div>
+            <span class="badge bg-secondary">Markers<span class="badge bg-light text-dark badge-space">4</span></span>
+          </div>
+        </div>
+        <div class="little-padding"></div>
+        <div class="map-wrap">
+          <div id="mapid"></div>
+        </div>
+      </section>
+
+      <div class="box"></div>
+
+      <section>
+        <h2 class="section-title">Place List</h2>
+        <table class="table table-striped table-hover bg-white mt-3">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Place</th>
+              <th scope="col">Type</th>
+              <th scope="col">Memo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Nagoya Institute of Technology</td>
+              <td>University</td>
+              <td>Main place of this page</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Nagoya Station</td>
+              <td>Station</td>
+              <td>Large terminal station</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Nagoya Castle</td>
+              <td>Tourist spot</td>
+              <td>Famous landmark</td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>Tsurumai Park</td>
+              <td>Park</td>
+              <td>Near the campus</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <div class="box"></div>
+
+      <section id="form-section">
+        <h2 class="section-title">Contact Form</h2>
+        <div class="card my-card mt-3">
+          <div class="card-body">
+            <form onsubmit="sendMessage(); return false;">
+              <div class="mb-3">
+                <label class="form-label">Email address</label>
+                <input type="email" class="form-control" placeholder="Enter email">
+                <div class="form-text">We'll never share your email with anyone else.</div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control" placeholder="Your name">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Comment</label>
+                <textarea class="form-control" rows="4" placeholder="Write message"></textarea>
+              </div>
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="check1">
+                <label class="form-check-label" for="check1">Check me out</label>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="reset" class="btn btn-outline-secondary ms-2">Reset</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <div class="box2"></div>
+
+      <nav aria-label="Page navigation" class="mt-4">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled"><a class="page-link">Previous</a></li>
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#map-section">2</a></li>
+          <li class="page-item"><a class="page-link" href="#form-section">3</a></li>
+          <li class="page-item"><a class="page-link" href="#form-section">Next</a></li>
+        </ul>
+      </nav>
+    </main>
+
+    <footer class="footer-area text-center">
+      <p class="mb-1">NITech Area Guide</p>
+      <small>Bootstrap and Leaflet sample page.</small>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+      function sendMessage() {
+        alert("submitted!");
+      }
+
+      var mymap = L.map('mapid').setView([35.1652, 136.9115], 13);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(mymap);
+
+      var nitMarker = L.marker([35.15656, 136.92475]).addTo(mymap);
+      var stationMarker = L.marker([35.1706431, 136.8816945]).addTo(mymap);
+      var castleMarker = L.marker([35.1855875, 136.8990919]).addTo(mymap);
+      var parkMarker = L.marker([35.15687, 136.91972]).addTo(mymap);
+
+      var Nitcircle = L.circle([35.15656, 136.92475], 500, {
+        color: 'blue',
+        fillColor: '#1E90FF',
+        fillOpacity: 0.35
+      }).addTo(mymap);
+
+      var latlngs = [
+        [35.15656, 136.92475],
+        [35.1706431, 136.8816945],
+        [35.1855875, 136.8990919],
+        [35.15687, 136.91972]
+      ];
+
+      L.polygon(latlngs, {
+        color: 'green',
+        weight: 3,
+        fillColor: 'green',
+        fillOpacity: 0.18
+      }).addTo(mymap);
+
+      nitMarker.bindPopup("<b>Nagoya Institute of Technology</b><br>Campus area.");
+      stationMarker.bindPopup("<b>Nagoya Station</b><br>Main station in Nagoya.");
+      castleMarker.bindPopup("<b>Nagoya Castle</b><br>Famous sightseeing place.");
+      parkMarker.bindPopup("<b>Tsurumai Park</b><br>Near NITech.");
+      Nitcircle.bindPopup("Around Nagoya Institute of Technology");
+    </script>
+  </body>
+</html>

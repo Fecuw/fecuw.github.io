@@ -1,0 +1,91 @@
+body {
+  background-color: #f4f7fb;
+  font-family: Arial, sans-serif;
+}
+
+.main-visual {
+  background:
+    linear-gradient(120deg, rgba(20,66,114,0.92), rgba(32,82,149,0.78)),
+    url("https://www.sssj.jimu.nagoya-u.ac.jp/kikanshoukai/assets_c/2018/02/10meiko-thumb-580xauto-33.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 54px 18px 42px 18px;
+}
+
+.main-visual h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.hero-small-text {
+  max-width: 680px;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.box {
+  padding: 12px;
+}
+
+.box2 {
+  padding: 6px;
+}
+
+.my-card {
+  border-radius: 6px;
+  box-shadow: 0 2px 7px rgba(0,0,0,0.10);
+}
+
+.map-wrap {
+  padding: 12px;
+  background-color: #ffffff;
+  border: 1px solid #d7dee8;
+  border-radius: 6px;
+}
+
+#mapid {
+  width: 100%;
+  height: 470px;
+  border-radius: 4px;
+}
+
+.badge-space {
+  margin-left: 8px;
+}
+
+.section-title {
+  border-left: 6px solid #2c74b3;
+  padding-left: 12px;
+}
+
+.footer-area {
+  background-color: #212529;
+  color: #eeeeee;
+  padding: 22px;
+  margin-top: 34px;
+}
+
+.little-padding {
+  padding: 8px;
+}
+
+.spot-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.portfolio-back {
+  display: block;
+  padding: 10px 20px;
+  background: #fff;
+  color: #244d77;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.portfolio-back:hover,
+.portfolio-back:focus-visible {
+  text-decoration: underline;
+}
